@@ -7,6 +7,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final books = dummyBooks.take(3).toList();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Beranda'),
@@ -18,30 +20,42 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Selamat Datang!', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            const Text(
+              'Selamat Datang!',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 8),
-            const Text('Rekomendasi Buku:', style: TextStyle(fontSize: 16, color: Colors.grey)),
+            const Text(
+              'Rekomendasi Buku:',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
             const SizedBox(height: 12),
+
             Expanded(
               child: ListView.builder(
-                itemCount: dummyBooks.take(3).length,
+                itemCount: books.length,
                 itemBuilder: (context, index) {
-                  final book = dummyBooks[index];
+                  final book = books[index];
+
                   return Card(
                     margin: const EdgeInsets.only(bottom: 10),
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Color(int.parse(book.coverColor)),
-                        child: Text(book.title[0], style: const TextStyle(color: Colors.white)),
+                        radius: 25,
+                        backgroundImage: AssetImage(book.image),
                       ),
-                      title: Text(book.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      title: Text(
+                        book.title,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       subtitle: Text(book.author),
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BookDetailPage(book: book),
+                            builder: (context) =>
+                                BookDetailPage(book: book),
                           ),
                         );
                       },

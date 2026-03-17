@@ -20,15 +20,13 @@ class BookDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Container(
-                width: 120,
-                height: 160,
-                decoration: BoxDecoration(
-                  color: Color(int.parse(book.coverColor)),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Center(
-                  child: Text(book.title[0], style: const TextStyle(fontSize: 48, color: Colors.white, fontWeight: FontWeight.bold)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  book.image,
+                  width: 120,
+                  height: 160,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -46,15 +44,12 @@ class BookDetailPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pop(context); // Navigator.pop untuk kembali
-                },
+                onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back),
                 label: const Text('Kembali'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
               ),
             ),

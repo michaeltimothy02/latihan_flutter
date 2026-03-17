@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
               child: Icon(Icons.person, size: 50, color: Colors.white),
             ),
             const SizedBox(height: 16),
-            const Text('Nama Mahasiswa', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text('Sharleenalettaaa', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             const Text('NIM: 123456789', style: TextStyle(fontSize: 16, color: Colors.grey)),
             const SizedBox(height: 4),
@@ -32,12 +32,12 @@ class ProfilePage extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.email, color: Colors.indigo),
               title: const Text('Email'),
-              subtitle: const Text('mahasiswa@email.com'),
+              subtitle: const Text('sharleen@email.com'),
             ),
             ListTile(
               leading: const Icon(Icons.school, color: Colors.indigo),
               title: const Text('Universitas'),
-              subtitle: const Text('Universitas Negeri'),
+              subtitle: const Text('Universitas Indonesia'),
             ),
           ],
         ),
